@@ -34,11 +34,12 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <img src="https://i.ibb.co/jP3NBv25/MALHOTRAS-IMG.png" alt="Malhotra's Estates Logo" className="w-10 h-10 object-contain group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all" />
-          <span className="font-serif text-xl md:text-2xl font-bold tracking-wider text-white">
-            MALHOTRA'S<span className="text-gold"> ESTATES</span>
-          </span>
+        <Link href="/" className="flex items-center gap-2 md:gap-3 group shrink-0">
+          <img src="https://i.ibb.co/jP3NBv25/MALHOTRAS-IMG.png" alt="Malhotra's Estates Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all shrink-0" />
+          <div className="flex flex-col sm:flex-row sm:items-center font-serif font-bold tracking-widest text-white">
+            <span className="text-[15px] sm:text-lg md:text-2xl leading-tight">MALHOTRA'S</span>
+            <span className="text-gold text-[12px] sm:text-lg md:text-2xl sm:ml-2 leading-tight">ESTATES</span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
