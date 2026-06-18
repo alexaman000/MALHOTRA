@@ -34,11 +34,11 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 md:gap-3 group shrink-0">
-          <img src="https://i.ibb.co/jP3NBv25/MALHOTRAS-IMG.png" alt="Malhotra's Estates Logo" className="w-8 h-8 md:w-10 md:h-10 object-contain group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all shrink-0" />
-          <div className="flex flex-col sm:flex-row sm:items-center font-serif font-bold tracking-widest text-white">
-            <span className="text-[15px] sm:text-lg md:text-2xl leading-tight">MALHOTRA'S</span>
-            <span className="text-gold text-[12px] sm:text-lg md:text-2xl sm:ml-2 leading-tight">ESTATES</span>
+        <Link href="/" className="flex items-center gap-2 group shrink-0">
+          <img src="https://i.ibb.co/jP3NBv25/MALHOTRAS-IMG.png" alt="Malhotra's Estates Logo" className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all shrink-0 rounded-md" />
+          <div className="flex flex-col justify-center font-serif font-bold tracking-widest text-white leading-none">
+            <span className="text-[13px] md:text-xl">MALHOTRA'S</span>
+            <span className="text-gold text-[10px] md:text-sm">ESTATES</span>
           </div>
         </Link>
 
