@@ -3,14 +3,16 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "../ui/Button";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Properties", href: "#properties" },
   { name: "Services", href: "#services" },
-  { name: "About", href: "#about" },
+  { name: "Investment", href: "#investment" },
+  { name: "Gallery", href: "#gallery" },
+  { name: "About Us", href: "#about" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -28,11 +30,12 @@ export const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass py-4" : "bg-transparent py-6"
+      className={`fixed top-0 left-0 right-0 z-50 flex flex-col transition-all duration-300 ${
+        isScrolled ? "glass shadow-lg" : "bg-gradient-to-b from-black/80 to-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+      {/* Top Main Row */}
+      <div className={`container mx-auto px-4 md:px-6 flex items-center justify-between transition-all duration-300 ${isScrolled ? "py-2" : "py-4"}`}>
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group shrink-0">
           <img src="https://i.ibb.co/jP3NBv25/MALHOTRAS-IMG.png" alt="Malhotra's Estates Logo" className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all shrink-0 rounded-md" />
@@ -42,21 +45,7 @@ export const Navbar = () => {
           </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-sm uppercase tracking-widest text-gray-300 hover:text-gold transition-colors relative group"
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          ))}
-        </nav>
-
-        {/* Actions */}
+        {/* Actions (Desktop) */}
         <div className="hidden lg:flex items-center gap-4">
           <a href="tel:+919355211735">
             <Button variant="outline" size="sm">
@@ -70,32 +59,54 @@ export const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden text-white"
+          className="lg:hidden text-white hover:text-gold transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Secondary Quick-Access Menu Bar (Visible on Desktop & Mobile) */}
+      <div className="w-full bg-black-main/90 border-y border-white/10 backdrop-blur-md">
+        <div className="container mx-auto">
+          {/* Horizontal scroll container for mobile, centered for desktop */}
+          <nav className="flex items-center gap-2 sm:gap-6 px-4 md:px-6 py-2 overflow-x-auto no-scrollbar lg:justify-center">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="flex items-center text-[13px] sm:text-sm uppercase tracking-wider text-gray-300 hover:text-gold transition-colors whitespace-nowrap px-2 py-1 rounded-md hover:bg-white/5"
+              >
+                {link.name}
+                {/* Optional dropdown icon like the screenshot if we ever add submenus */}
+                {['Properties', 'Services', 'Investment'].includes(link.name) && (
+                  <ChevronDown className="ml-1 w-3 h-3 opacity-50" />
+                )}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      {/* Mobile Nav Dropdown */}
       {mobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="absolute top-full left-0 right-0 glass border-t border-white/10 p-6 flex flex-col gap-4 lg:hidden"
+          className="absolute top-full left-0 right-0 glass border-t border-white/10 p-6 flex flex-col gap-4 lg:hidden shadow-2xl"
         >
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg text-gray-300 hover:text-gold transition-colors"
+              className="text-lg text-gray-300 hover:text-gold transition-colors py-2 border-b border-white/5"
             >
               {link.name}
             </Link>
           ))}
-          <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-white/10">
+          <div className="flex flex-col gap-3 mt-2">
             <a href="tel:+919355211735" className="w-full">
               <Button variant="outline" className="w-full">Call Now</Button>
             </a>
