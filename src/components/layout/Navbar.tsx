@@ -70,7 +70,7 @@ export const Navbar = () => {
       <div className="w-full bg-black-main/90 border-y border-white/10 backdrop-blur-md">
         <div className="container mx-auto">
           {/* Horizontal scroll container for mobile, centered for desktop */}
-          <nav className="flex items-center gap-4 sm:gap-6 px-4 md:px-6 py-3 overflow-x-auto flex-nowrap touch-pan-x no-scrollbar lg:justify-center">
+          <nav className="flex items-center gap-4 sm:gap-6 px-4 md:px-6 py-3 overflow-x-auto flex-nowrap lg:justify-center" style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             {navLinks.map((link) => (
               <Link
                 key={link.name}

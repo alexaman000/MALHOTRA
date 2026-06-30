@@ -30,7 +30,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section ref={ref} className="relative h-screen min-h-[900px] flex items-center justify-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[900px] md:h-screen flex flex-col justify-center overflow-hidden pt-[160px] pb-10">
       {/* Video Background */}
       <motion.div 
         style={{ y }} 
@@ -133,7 +133,7 @@ export const Hero = () => {
       {/* Main Content */}
       <motion.div 
         style={{ opacity }}
-        className="container relative z-30 mx-auto px-4 text-center pt-56 md:pt-40"
+        className="container relative z-30 mx-auto px-4 text-center"
       >
         {/* Badge */}
         <motion.div
