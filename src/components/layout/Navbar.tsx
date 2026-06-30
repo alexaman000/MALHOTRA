@@ -70,12 +70,12 @@ export const Navbar = () => {
       <div className="w-full bg-black-main/90 border-y border-white/10 backdrop-blur-md">
         <div className="container mx-auto">
           {/* Horizontal scroll container for mobile, centered for desktop */}
-          <nav className="flex items-center gap-2 sm:gap-6 px-4 md:px-6 py-2 overflow-x-auto no-scrollbar lg:justify-center">
+          <nav className="flex items-center gap-4 sm:gap-6 px-4 md:px-6 py-3 overflow-x-auto flex-nowrap touch-pan-x no-scrollbar lg:justify-center">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="flex items-center text-[13px] sm:text-sm uppercase tracking-wider text-gray-300 hover:text-gold transition-colors whitespace-nowrap px-2 py-1 rounded-md hover:bg-white/5"
+                className="flex items-center text-[12px] sm:text-sm uppercase tracking-wider text-gray-300 hover:text-gold transition-colors whitespace-nowrap px-3 py-1.5 rounded-full border border-transparent hover:border-gold/30 hover:bg-white/5 shrink-0"
               >
                 {link.name}
                 {/* Optional dropdown icon like the screenshot if we ever add submenus */}

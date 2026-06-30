@@ -133,7 +133,7 @@ export const Hero = () => {
       {/* Main Content */}
       <motion.div 
         style={{ opacity }}
-        className="container relative z-30 mx-auto px-4 text-center pt-40 md:pt-32"
+        className="container relative z-30 mx-auto px-4 text-center pt-56 md:pt-40"
       >
         {/* Badge */}
         <motion.div
